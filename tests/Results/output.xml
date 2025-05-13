@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.10.0 on win32)" generated="2025-05-12T23:48:44.052346" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="C:\Users\khaba\OneDrive\Bureau\Robotframework Tests\Test-Automation-Lab\tests\login.robot">
+<kw name="Open Browser To Login Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-12T23:48:45.018923" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<msg time="2025-05-12T23:48:45.451909" level="WARN">The chromedriver version (135.0.7049.114) detected in PATH at C:\Users\khaba\OneDrive\Bureau\Webdriver\chromedriver.exe might not be compatible with the detected chrome version (136.0.7103.92); currently, chromedriver 136.0.7103.92 is recommended for chrome 136.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-12T23:48:45.016809" elapsed="3.010646"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-12T23:48:48.027455" elapsed="0.074911"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.5 seconds</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-05-12T23:48:48.102366" elapsed="0.002203"/>
+</kw>
+<kw name="Login Page Should Be Open">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-05-12T23:48:48.648969" level="INFO">Current page contains element 'id:user-name'.</msg>
+<arg>id:user-name</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-05-12T23:48:48.104569" elapsed="0.544400"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-05-12T23:48:49.191192" level="INFO">Current page contains element 'id:password'.</msg>
+<arg>id:password</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-05-12T23:48:48.648969" elapsed="0.542223"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2025-05-12T23:48:49.721415" level="INFO">Current page contains element 'id:login-button'.</msg>
+<arg>id:login-button</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2025-05-12T23:48:49.191192" elapsed="0.530575"/>
+</kw>
+<doc>Verifies login page is displayed</doc>
+<status status="PASS" start="2025-05-12T23:48:48.104569" elapsed="1.617198"/>
+</kw>
+<doc>Opens browser to login page</doc>
+<status status="PASS" start="2025-05-12T23:48:45.013400" elapsed="4.708367"/>
+</kw>
+<test id="s1-t1" name="Valid Credentials" line="14">
+<kw name="Login With Credentials">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-05-12T23:48:49.726348" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<arg>id:user-name</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-12T23:48:49.726348" elapsed="1.871082"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-05-12T23:48:51.597430" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2025-05-12T23:48:52.683170" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-12T23:48:51.597430" elapsed="1.781930"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-12T23:48:53.379360" level="INFO">Clicking button 'id:login-button'.</msg>
+<arg>id:login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-12T23:48:53.379360" elapsed="1.830723"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Valid Login Should Succeed">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-05-12T23:48:56.254417" level="INFO">Current page contains text 'Swag Labs'.</msg>
+<arg>Swag Labs</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-05-12T23:48:55.216531" elapsed="1.037886"/>
+</kw>
+<doc>Verifies successful login</doc>
+<status status="PASS" start="2025-05-12T23:48:55.214509" elapsed="1.039908"/>
+</kw>
+<arg>'${username}' == '${VALID_USER['username']}' and '${password}' == '${VALID_USER['password']}'</arg>
+<arg>Valid Login Should Succeed</arg>
+<arg>ELSE</arg>
+<arg>Invalid Login Should Fail</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-12T23:48:55.210083" elapsed="1.044334"/>
+</kw>
+<arg>${VALID_USER['username']}</arg>
+<arg>${VALID_USER['password']}</arg>
+<doc>Attempts to login with given credentials</doc>
+<status status="PASS" start="2025-05-12T23:48:49.722808" elapsed="6.531609"/>
+</kw>
+<status status="PASS" start="2025-05-12T23:48:49.721767" elapsed="6.532650"/>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-05-12T23:48:56.258545" elapsed="3.301662"/>
+</kw>
+<doc>Login Functionality Tests</doc>
+<status status="PASS" start="2025-05-12T23:48:44.056901" elapsed="15.503306"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login" id="s1" pass="1" fail="0" skip="0">Login</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-05-12T23:48:45.451909" level="WARN">The chromedriver version (135.0.7049.114) detected in PATH at C:\Users\khaba\OneDrive\Bureau\Webdriver\chromedriver.exe might not be compatible with the detected chrome version (136.0.7103.92); currently, chromedriver 136.0.7103.92 is recommended for chrome 136.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>

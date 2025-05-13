@@ -1,0 +1,7 @@
+python-dotenv
+robotframework
+robotframework-seleniumlibrary
+robotframework-selenium2library
+robotframework-requests
+robotframework-httplibrary
+robotframework-requests
